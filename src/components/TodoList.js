@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
-import TodoInput from '../container/TodoInput'
+import TodoInput from './TodoInput'
 import Todos from './Todos'
 import { connect } from 'react-redux';
+import TodoInputContainer from '../container/TodoInputContainer';
 
 class TodoList extends Component {
   state = {todos: []};
   render() {
     return (
       <div>
-        <TodoInput/>
+        <TodoInputContainer/>
         <Todos todos={this.props.todos}/>
       </div>
     )
