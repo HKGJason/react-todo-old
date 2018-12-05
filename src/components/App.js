@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import TodoList from './TodoList.js'
+import TodoListContainer from '../container/TodoListContainer'
 import { connect } from "react-redux";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <TodoList/>
+        <TodoListContainer/>
       </div>
     );
   }
