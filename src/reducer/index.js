@@ -7,7 +7,15 @@ export default (state = initialState, action) =>{
     case "ADD_TODO":
     
         return {todos: [...state.todos, action.payload]};
-    
+    case "TOGGLE_TODO":
+		let result = state.todos.map(todo => {
+			if (todo.id === action.payload.id)
+				return action.payload
+			else
+				return todo
+		})
+		return {todos:result}
+	
 
     default:
         return state;

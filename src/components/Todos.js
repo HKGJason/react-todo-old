@@ -1,22 +1,23 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
-class Todos extends Component {
+export default class Todos extends Component {
   render() {
     const {todos} = this.props
-    /*
-    this.props.dispatch({
-      type: "MAP_TODOS"
-      payload: 
-
-    })
-*/
     return (
       <div>
-        {todos.map((todo, i) => <li key={i}>{todo.content}</li>)}
+        {todos.map((todo, i) => {
+            if(todo.status ==="completed"){
+              return <li onClick={() => this.props.handleClick(todo)} style={{ textDecorationLine: 'line-through' }} key={i}>{todo.content}</li>
+            }
+            else
+              return <li onClick={() => this.props.handleClick(todo)} key={i}>{todo.content}</li>
+          }).filter((todo)=>{
+            if (this.props.checked)
+              if (todo.status === "active")
+                return false
+            return true
+          })}
       </div>
     )
   }
 }
-
-export default connect()(Todos)
