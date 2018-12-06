@@ -35,7 +35,16 @@ const mapDispatchToProps = (dispatch) => ({
           content:res.content
       }
     }))
+  }, 
+  onStart: pay =>{
+    dispatch({
+      type: "INIT_TODO",
+      payload: pay
+
+    })
   }
+
+
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(Todos);

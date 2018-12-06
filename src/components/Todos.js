@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 
 export default class Todos extends Component {
+
+
+  
+  componentWillMount(){
+    fetch("http://localhost:8080/api/todos/search/statusOfTodos?status=completed,active", {
+      method: 'GET',
+      mode: 'cors'})
+      .then(res => res.json())
+      .then(res => this.props.onStart(res._embedded.todos));
+  }
+
   render() {
-    const {todos} = this.props
+    let todos = this.props.todos
     return (
       <div>
       {todos.filter((todo)=>{
@@ -23,3 +34,4 @@ export default class Todos extends Component {
     )
   }
 }
+
