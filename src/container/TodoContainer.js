@@ -12,7 +12,9 @@ const mapDispatchToProps = (dispatch) => ({
       status = "active"
     }
     else
+    {
       status = "completed"
+    }
     fetch("http://localhost:8080/api/todos/" + todo.id, {
       mode: 'cors',
       method: 'PUT', 

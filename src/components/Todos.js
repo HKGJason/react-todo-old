@@ -9,13 +9,15 @@ export default class Todos extends Component {
             if(todo.status ==="completed"){
               return <li onClick={() => this.props.handleClick(todo)} style={{ textDecorationLine: 'line-through' }} key={i}>{todo.content}</li>
             }
-            else
+            else{
               return <li onClick={() => this.props.handleClick(todo)} key={i}>{todo.content}</li>
+            }
           }).filter((todo)=>{
             if (this.props.checked)
               if (todo.status === "active")
                 return false
             return true
+            
           })}
       </div>
     )
