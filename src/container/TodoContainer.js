@@ -2,7 +2,8 @@ import {connect} from "react-redux";
 import Todos from "../components/Todos.js"
 
 const mapStateToProps = state =>({ 
-  todos: state.todos
+  todos: state.todos,
+  checked: state.isOnlyActive
 });
 
 const mapDispatchToProps = (dispatch) => ({

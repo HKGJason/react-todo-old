@@ -1,12 +1,13 @@
 const initialState = {
-    todos : []
+    todos : [],
+    isOnlyActive: false
 }
 
 export default (state = initialState, action) =>{
     switch(action.type){
     case "ADD_TODO":
-    
-        return {todos: [...state.todos, action.payload]};
+  
+        return {...state, todos: [...state.todos, action.payload]};
     case "TOGGLE_TODO":
 		let result = state.todos.map(todo => {
 			if (todo.id === action.payload.id)
@@ -14,7 +15,10 @@ export default (state = initialState, action) =>{
 			else
 				return todo
 		})
-		return {todos:result}
+        return {...state, todos:result}
+    case "FILTER_COMPLETED":
+
+        return {...state, isOnlyActive: action.payload}
 	
 
     default:
